@@ -8,6 +8,7 @@ const Header = () =>{
 
   useEffect(() => {
     // 리포지토리 정보 가져오기
+    console.log('Header render')
     getRepositoryInfo('facebook', 'react')
       .then(response => {
         setRepoInfo(response.name);
@@ -29,9 +30,9 @@ const Header = () =>{
   }, []);
 
     return <div>
-      <h1>Header</h1>
-      <h2>{`${orgInfo} / ${repoInfo}`}</h2>
+      {/* <h2>{`${orgInfo} / ${repoInfo}`}</h2> */}
+      <h2>Facebook / React</h2>
     </div>;
 }
 
-export default Header;
+export default React.memo(Header);

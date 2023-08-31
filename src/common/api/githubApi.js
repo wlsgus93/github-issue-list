@@ -1,6 +1,7 @@
-// import axios from 'axios';
 import { Octokit } from '@octokit/rest';
-const octokit = new Octokit();
+const octokit = new Octokit(
+  {OCTOKIT_TOKEN:process.env.OCTOKIT_TOKEN}
+);
 //repo이름 가져오기
 export async function getRepositoryInfo(owner, repo) {
   try {
@@ -38,5 +39,19 @@ export async function getIssuesByCommentCount(owner, repo, page, perPage) {
     return response.data;
   } catch (error) {
     throw error;
+  }
+}
+export async function getIssueContent(owner,repo,issueNumber) {
+  try {
+    console.log('success')
+    const response = await octokit.issues.get({
+      owner,
+      repo,
+      issue_number: issueNumber,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching issue content:', error);
+    return null;
   }
 }
