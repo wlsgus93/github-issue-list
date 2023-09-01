@@ -1,8 +1,9 @@
 
 import {BrowserRouter, Route, Routes} from "react-router-dom"
-import { Main,Detail } from './pages';
+import { Main,Detail,ErrorPage } from './pages';
 import { useEffect } from "react";
 import { Header } from "./components";
+
 function App() {
   useEffect(()=>{
     console.log('app render');
@@ -17,6 +18,8 @@ function App() {
     <Routes>
       <Route path="/" Component={Main}></Route>
       <Route path="/detail/:id" Component={Detail}></Route>
+      <Route path="*" element={<ErrorPage />} />
+      <Route path="/error" element={<ErrorPage />} />
     </Routes>
   </BrowserRouter>
   );

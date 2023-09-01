@@ -1,26 +1,29 @@
 // Organization Name / Repository Name
-import React,{useState,useEffect} from 'react';
-import { getIssuesByCommentCount } from '../common/api/githubApi';
+import React from 'react';
 import { useNavigate } from "react-router-dom";
 import {Grid, Image} from "../elements/index.js";
-import { useParams } from 'react-router-dom';
+import { styled } from 'styled-components';
 
 const Card = (props) =>{
   const issue=props.issue;
-  // const is_banner=props.banner;
-  console.log(props)
-  // console.log(issue&&issue.user.avatar_url)
+
+  const handleClick = () => {
+    // 클릭 시 URL로 이동
+    window.location.href = 'https://www.wanted.co.kr/';
+  };
   const navigate = useNavigate();
   const goDetail = (id)=>{
     console.log(id)
         navigate(`/detail/${id}`)
     }
 //작성자, 작성일, 코멘트수
-  console.log(!issue && props.is_banner)
+  // console.log(!issue && props.is_banner)
   if (!issue && props.is_banner) {
     
     return<>
-      <img src={props.banner} alt=''/>
+      <AspectOutter>
+        <Banner onClick={handleClick} src={props.banner} ></Banner>
+      </AspectOutter>
       </>}
 
   
@@ -65,21 +68,21 @@ const Card = (props) =>{
   }
 
 
-// Card.defaultProps = {
-//   user_name: "jinhyun",
-//   user_profile: '',
-//   contents: "고양이네요!",
-//   comment_cnt: 10,
-//   insert_dt: "2021-02-27 10:00:00",
-//   };
-// {<Grid is_flex width="auto">
-// <Image shape="circle" src='' />
-
-// </Grid>}
-
-// {<Grid>
-//   <Image shape="rectangle" src={''} />
-// </Grid>}
+const Banner=styled.div`
+  background-image: url("${(props) => props.src}");
+  width: 400px;
+  background-repeat: no-repeat;
+  height: 100px;
+  background-size: contain;
+  margin: 0 auto;
+  
+`
+const AspectOutter = styled.div`
+  width: 800px;
+  min-width: 250px;
+  margin: 0 auto;
+  border-bottom: grey  solid;
+`;
 
 export default Card;
             

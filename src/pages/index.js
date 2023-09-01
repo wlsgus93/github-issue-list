@@ -1,3 +1,4 @@
 import Detail from './Detail'
 import Main from './Main'
-export {Main,Detail};
+import ErrorPage from './ErrorPage'
+export {Main,Detail,ErrorPage};

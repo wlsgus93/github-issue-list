@@ -36,6 +36,7 @@ export async function getIssuesByCommentCount(owner, repo, page, perPage) {
       sort: 'comments', // 코멘트 수를 기준으로 정렬
       direction: 'desc', // 오름차순으로 정렬
     });
+    console.log('check');
     return response.data;
   } catch (error) {
     throw error;

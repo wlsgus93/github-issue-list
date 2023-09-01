@@ -1,6 +1,7 @@
 // Organization Name / Repository Name
 import React, { useEffect,useState } from 'react';
 import { getRepositoryInfo,getOrganizationInfo } from '../common/api/githubApi';
+import { styled } from 'styled-components';
 
 const Header = () =>{
   const [repoInfo, setRepoInfo] = useState({});
@@ -29,10 +30,13 @@ const Header = () =>{
       });
   }, []);
 
-    return <div>
+    return <>
       {/* <h2>{`${orgInfo} / ${repoInfo}`}</h2> */}
-      <h2>Facebook / React</h2>
-    </div>;
-}
+      <Title>Facebook / React</Title>
+      </>
 
+}
+const Title=styled.h1`
+  text-align: center;
+`
 export default React.memo(Header);
