@@ -9,8 +9,8 @@
 #### 링크 : [http://wanted-pre-onboarding-frontend-jin0816.s3-website.ap-northeast-2.amazonaws.com/](http://github-issuelist.s3-website.ap-northeast-2.amazonaws.com)
 
 
-```
-### 6. 추후 평가
+---
+### 3. 추후 평가
 - 구현 범위가 적고, 기능 구현만 고려하여 클린코드 X
  - 코드 리팩토링 필요
    1. 각각의 스크립트에서 같은 변수 재선언 많음
